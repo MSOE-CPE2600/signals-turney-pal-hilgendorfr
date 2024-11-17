@@ -4,15 +4,27 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Ryan Pal Hilgendorf
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: catches a segmentation fault when thrown.
+ *     then keeps repeatedly faulting and catching infinitely since it does
+ *     not exit.
  */
 
 
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 
-int main (int argc, char* argv[]) {
+void handle_signal() {
+    printf("Fault recieved.\n");
+}
+
+int main () {
+    // Signal register
+    signal(SIGSEGV, handle_signal);
+
     // Declare a null pointer
     int* i = NULL;
 
