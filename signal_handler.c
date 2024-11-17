@@ -4,9 +4,10 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Ryan Pal Hilgendorf
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: instead of exiting the program, we get the
+ *     process ID and kill the process using SIGKILL
  */
 
 
@@ -20,7 +21,7 @@
  */
 void handle_signal() {
     printf("Received a signal\n");
-    exit(1);
+    kill(getpid(), SIGKILL);
 }
 
 int main() {
