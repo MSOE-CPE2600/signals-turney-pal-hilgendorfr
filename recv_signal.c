@@ -2,7 +2,8 @@
  * File: recv_signal.c
  * Modified by: Ryan Pal Hilgendorf
  * 
- * Brief summary of program:
+ * Brief summary of program: wait for and take SIGUSR1, catch it, and send
+ *     user to process screen.
  */
 #include <signal.h>
 #include <unistd.h>
